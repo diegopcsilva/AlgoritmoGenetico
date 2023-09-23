@@ -19,7 +19,7 @@ public class Main {
 		//String expression = "1/(x+1)/(y+1)/(z+1)";
 		//String expression ="x+y+z";
 		String expression ="1/(exp(sinh(x)-1)+cosh(y)+tan(z^2))";
-		System.out.println("Início ");
+		System.out.println("InÃ­cio ");
 		Populacao Pop0 = new Populacao(LimiteInferior, LimiteSuperior, TamanhoPopulacao);
 		Pop0.Init(TamanhoPopulacao);
 		while(gerando){
@@ -29,7 +29,7 @@ public class Main {
 			Generation++;
 			if(Generation==NumeroDeGeracoes){
 				System.out.println("Generation "+ Generation);
-				System.out.println("População Total "+ TamanhoPopulacao*Generation);
+				System.out.println("PopulaÃ§Ã£o Total "+ TamanhoPopulacao*Generation);
 				System.out.println("Resultado encontrado "+Pop0.Lista.get(Pop0.Lista.size()-1).getAvalicao());
 				break;
 			}
@@ -38,17 +38,17 @@ public class Main {
 			Pop1.recebePopulacao(SteadyState, Pop0);
 			OperadoresGeneticos OpeGen = new OperadoresGeneticos(Pop0, Pop1, TamanhoPopulacao, TaxaCrossover, TaxaMutacao, LimiteSuperior, LimiteInferior);
 			Pop1 = (Populacao) OpeGen.CrossoverMutation().clone();
-			//POPULAÇÃO 1 GERADA, APAGAR POP0
+			//POPULAï¿½ï¿½O 1 GERADA, APAGAR POP0
 			Pop0.Lista.clear();
 			Pop0.setAvTotal(0);
-			//AVALIAÇÃO POP1
+			//AVALIAï¿½ï¿½O POP1
 			Avaliation av1 = new Avaliation(Pop1, expression, TamanhoPopulacao, Agrau,Bgrau,Cgrau);
 			Pop1 = (Populacao) av1.processo().clone();
 			Pop1.ordenar((int)TamanhoPopulacao);
 			++Generation;//asdad
 			if(Generation==NumeroDeGeracoes){
 				System.out.println("Generation "+ Generation);
-				System.out.println("População Total "+ TamanhoPopulacao*Generation);
+				System.out.println("PopulaÃ§Ã£o Total "+ TamanhoPopulacao*Generation);
 				System.out.println("Resultado encontrado "+Pop1.Lista.get(Pop1.Lista.size()-1).getAvalicao());
 				break;
 			}
@@ -56,7 +56,7 @@ public class Main {
 			Pop0.recebePopulacao(SteadyState, Pop1);
 			OperadoresGeneticos OpeGen2 = new OperadoresGeneticos(Pop1, Pop0, TamanhoPopulacao, TaxaCrossover, TaxaMutacao, LimiteSuperior, LimiteInferior);
 			Pop0 = (Populacao) OpeGen2.CrossoverMutation().clone();
-			//POPULAÇÃO 2 GERADA, APAGAR POP1
+			//POPULAï¿½ï¿½O 2 GERADA, APAGAR POP1
 			Pop1.Lista.clear();
 			Pop1.setAvTotal(0);
 		}

@@ -1,6 +1,7 @@
 package avaliar;
 import campoDeTestes.Populacao;
 import net.objecthunter.exp4j.ExpressionBuilder;
+import 
 
 public class Avaliation {
 	double A = 0;
@@ -50,7 +51,7 @@ public class Avaliation {
 			Pop.Lista.get(i).setAvalicao((Double)result);
 			Pop.setAvTotal( (int)(Pop.getAvTotal()+result) );
 			
-			//System.out.println("Resultado avaliação"+e.evaluate());
+			//System.out.println("Resultado avaliaï¿½ï¿½o"+e.evaluate());
 			i++;
 		}
 		return Pop;
